@@ -1,6 +1,4 @@
-# Project : IoT Home Automation
-# Author: Navaneeth M
-# Target Board : RaspberryPi 3 Model B
+
 
 import RPi.GPIO as GPIO
 import json
