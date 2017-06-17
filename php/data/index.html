@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<title>IR Sensor Monitoring</title>
+
+<head>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script type="text/javascript" src="scripts/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+
+	<div class="component">
+
+		<table id="tabexpo">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Sensor Data</th>
+					<th>Date & Time</th>
+				</tr>
+			</thead>
+		</table>
+
+		<p></p>
+
+<script type="text/javascript">
+
+$(document).ready( function() {
+done();
+});
+
+function done() {
+  setTimeout( function() { 
+  updates(); 
+  done();
+  }, 2000);
+}
+
+function updates()  {
+
+	$.getJSON("fetch.php", function(data) {
+		$("p").empty();
+		$.each(data.results, function() {
+		$("p").append("<table><thead><tr><td>Sample #"+this['id']+"</td><td>"+this['status']+"</td><td>"+this['time']+"</td></tr></thead></table>");
+		});
+	});
+}
+
+</script>
+</div>
+</div>
+</body>
+</html>
