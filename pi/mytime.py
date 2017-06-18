@@ -13,7 +13,7 @@ GPIO.setup(s1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 while True:
 	pinStatus =  GPIO.input(s1)
-	payload = {'status': 'on'}
-	r = requests.get('http://192.168.1.104/pi/ins.php', params=payload)
+	payload = {'status': pinStatus}
+	r = requests.get('http://192.168.1.100/pi/ins.php', params=payload)
 	print(r.status_code)
-	time.sleep(10)
+	time.sleep(5)
